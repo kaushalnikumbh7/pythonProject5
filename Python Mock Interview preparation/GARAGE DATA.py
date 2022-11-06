@@ -1,7 +1,7 @@
 from pyspark import SparkContext,SparkConf
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
-import pyspark.sql.functions as f
+import pyspark.sql.functions
 from pyspark.sql.types import *
 if __name__ == '__main__':
     sparkconf = SparkConf().setAppName("Spark Context Init").setMaster("local[*]")
@@ -52,11 +52,17 @@ custdf.createOrReplaceTempView('customer')
 
 # custdf.select(custdf.columns[1:5]).show()
 
-serdetdf = spark.read.csv('C:\Spark\GARAGE DF\ser_det.csv',header=True,inferSchema=True)
-serdetdf.show()
+# serdetdf = spark.read.csv('C:\Spark\GARAGE DF\ser_det.csv',header=True,inferSchema=True)
+# serdetdf.show()
+#
+# empdf.join(serdetdf,empdf.EID == serdetdf.EID,'inner').show()
+#
+# empdf.distinct().join(serdetdf,empdf.EID == serdetdf.EID,'left').show()
+#
+# empdf.join(serdetdf,empdf.EID == serdetdf.EID,'right').show()
 
-empdf.join(serdetdf,empdf.EID == serdetdf.EID,'inner').show()
 
-empdf.distinct().join(serdetdf,empdf.EID == serdetdf.EID,'left').show()
 
-empdf.join(serdetdf,empdf.EID == serdetdf.EID,'right').show()
+python_list = [(25, 3), (6, 9), (11, 5), (124, 2)]
+
+a = python_list.
